@@ -1,0 +1,67 @@
+---
+// src/components/Hero.astro
+---
+
+<section id="home" class="relative bg-brand-light pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-green/10 text-brand-green font-semibold text-sm mb-6 border border-brand-green/20">
+          <span class="flex h-2 w-2 rounded-full bg-brand-green mr-2"></span>
+          Let us make your garden thrive
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
+          Expert Garden Care <br class="hidden md:block" />
+          in <span class="text-brand-green">Harlow & Essex</span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed">
+          Professional lawn mowing, sharp hedge trimming, and regular garden maintenance. Quality, reliable service tailored to keep your outdoor space looking its absolute best all year round.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button class="open-quote-modal cursor-pointer inline-flex justify-center items-center px-8 py-4 text-lg font-bold rounded-md text-white bg-brand-accent hover:bg-brand-accent-hover shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            Request a Free Quote
+          </button>
+          <a href="tel:07588777275" class="cursor-pointer inline-flex justify-center items-center px-8 py-4 border-2 border-brand-green text-lg font-bold rounded-md text-brand-green bg-transparent hover:bg-brand-green hover:text-white transition-all duration-300">
+            Call 07588 777275
+          </a>
+        </div>
+        
+        <div class="mt-10 flex flex-wrap items-center gap-4 text-sm text-gray-600 font-medium">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-brand-green mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Fully Insured
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-brand-green mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Free Estimates
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-brand-green mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Local & Reliable
+          </div>
+        </div>
+      </div>
+
+      <div class="relative w-full h-full lg:h-[550px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0 z-10">
+        <div class="absolute inset-0 bg-brand-green rounded-[2rem] transform rotate-3 scale-105 opacity-15 -z-10 mt-4 ml-4"></div>
+        <div class="relative w-full max-w-lg lg:max-w-full h-auto aspect-[4/3] lg:aspect-auto lg:h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+          <img src="/images/hero1.jpg" alt="Beautifully maintained garden by HB Gardencare in Harlow" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="absolute -bottom-6 -left-2 sm:-left-6 bg-white p-3 sm:p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3 sm:gap-4 z-20">
+          <div class="bg-brand-accent/10 p-2 sm:p-3 rounded-full text-brand-accent">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8-2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <div>
+            <p class="text-xs sm:text-sm text-gray-500 font-medium">Local Favorite</p>
+            <p class="text-base sm:text-lg font-bold text-gray-900">5.0 on Facebook</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>

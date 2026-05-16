@@ -1,0 +1,79 @@
+---
+// src/components/Services.astro
+
+const services = [
+  {
+    title: "Lawn Mowing & Care",
+    description: "Regular, reliable mowing to keep your grass lush, green, and perfectly striped. We handle the edging and the clean-up so your lawn is always barbecue-ready.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 21h6"></path></svg>`
+  },
+  {
+    title: "Hedge Trimming & Pruning",
+    description: "Sharp, clean cuts for perfectly squared-off hedges and healthy shrubs. We shape, reduce, and meticulously clear away all the clippings.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path></svg>`
+  },
+  {
+    title: "General Garden Maintenance",
+    description: "Comprehensive year-round care. From weed control and border tidying to seasonal leaf clearance, we keep your outdoor spaces thriving in every season.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>`
+  }
+];
+---
+
+<section id="services" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-green/10 text-brand-green font-semibold text-sm mb-4">
+        Our Services
+      </div>
+      <h2 class="text-3xl md:text-4xl leading-tight font-extrabold text-gray-900 mb-4">
+        Expert care to make your garden <span class="text-brand-green">thrive.</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        We specialize in high-quality, regular garden maintenance so you can spend less time working in your garden, and more time enjoying it.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="group bg-brand-light rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden cursor-pointer open-quote-modal">
+          
+          <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-green opacity-0 group-hover:opacity-5 rounded-full transition-opacity duration-300"></div>
+
+          <div class="w-16 h-16 rounded-xl bg-brand-green text-white flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+            <Fragment set:html={service.icon} />
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-brand-green transition-colors duration-300">
+            {service.title}
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            {service.description}
+          </p>
+
+          <div class="flex items-center text-brand-accent font-semibold text-sm group-hover:text-brand-accent-hover transition-colors">
+            Request this service 
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 bg-brand-green rounded-2xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between shadow-xl relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 24px 24px;"></div>
+      
+      <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
+        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Need something else?</h3>
+        <p class="text-brand-light/90 text-lg">We also handle seasonal clean-ups, waste removal, and soft landscaping.</p>
+      </div>
+      
+      <div class="relative z-10">
+        <button class="open-quote-modal cursor-pointer bg-brand-accent hover:bg-brand-accent-hover text-white font-bold py-4 px-8 rounded-md shadow-lg transition duration-300 whitespace-nowrap text-lg w-full md:w-auto transform hover:scale-105">
+          Get a Custom Quote
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

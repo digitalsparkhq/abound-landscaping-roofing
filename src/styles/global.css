@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-brand-green: #3b5a41; 
+  --color-brand-green-dark: #2c4431;
+  /* Updated to your new warm background color */
+  --color-brand-light: #f2f0e4; 
+  --color-brand-accent: #e67e22; 
+  --color-brand-accent-hover: #d35400;
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Custom utility for the angled menu box */
+@layer utilities {
+  .clip-angled-left {
+    clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
+  }
+}

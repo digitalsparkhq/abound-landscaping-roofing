@@ -1,0 +1,106 @@
+---
+// src/components/QuoteModal.astro
+---
+
+<dialog id="quote-modal" class="backdrop:bg-black/60 p-0 rounded-lg shadow-2xl m-auto max-w-2xl w-full border-none">
+  <div class="bg-white p-6 md:p-8 relative">
+    <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    
+    <h2 class="text-2xl font-bold text-brand-green mb-2">Get a Quick Quote</h2>
+    <p class="text-gray-600 mb-6">Fill out the details below and we'll get back to you to make your garden thrive.</p>
+
+    <form class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+          <input type="tel" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border" required />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700">Address Line 1</label>
+          <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Address Line 2 (Optional)</label>
+          <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Postal Code</label>
+          <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border" required />
+        </div>
+      </div>
+
+      <hr class="border-gray-200" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Service Required</label>
+          <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border bg-white">
+            <option>Lawn Mowing & Care</option>
+            <option>Hedge Trimming & Pruning</option>
+            <option>General Garden Maintenance</option>
+            <option>Other / Unsure</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Ideal Start Date</label>
+          <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border bg-white">
+            <option>As soon as possible</option>
+            <option>Within the next week</option>
+            <option>Within the next month</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700">Project Description</label>
+          <textarea rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-green focus:ring-brand-green p-2 border" placeholder="Tell us about your garden..."></textarea>
+        </div>
+        <div class="md:col-span-2">
+           <label class="block text-sm font-medium text-gray-700">Upload Site Images (Max 3)</label>
+           <input type="file" multiple accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-brand-light file:text-brand-green hover:file:bg-gray-200" />
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accent-hover text-white font-bold py-3 px-4 rounded-md transition duration-300">
+        Request Free Quote
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const modal = document.querySelector('#quote-modal') as HTMLDialogElement;
+  const closeBtn = document.querySelector('#close-modal');
+  const openBtns = document.querySelectorAll('.open-quote-modal');
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.showModal();
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal.close();
+    document.body.style.overflow = '';
+  });
+
+  // Close when clicking outside the modal box
+  modal?.addEventListener('click', (e) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      modal.close();
+      document.body.style.overflow = '';
+    }
+  });
+</script>

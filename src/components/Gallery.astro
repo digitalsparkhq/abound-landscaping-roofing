@@ -1,0 +1,135 @@
+---
+// src/components/Gallery.astro
+
+const projects = [
+  { src: "/images/gallery1.jpg", alt: "Perfectly striped lawn and neat borders in Harlow" },
+  { src: "/images/gallery2.jpg", alt: "Freshly trimmed and squared-off hedges" },
+  { src: "/images/gallery3.jpg", alt: "Complete garden tidy up and maintenance" },
+  { src: "/images/gallery4.jpg", alt: "Before and after lawn mowing service" },
+  { src: "/images/gallery5.jpg", alt: "Precision shrub pruning and shaping" },
+  { src: "/images/gallery6.jpg", alt: "Lush green summer lawn treatment" }
+];
+---
+
+<section id="gallery" class="py-20 lg:py-28 bg-brand-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-green/10 text-brand-green font-semibold text-sm mb-4">
+          Our Recent Work
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+          Lush lawns and <span class="text-brand-green">sharp hedges.</span>
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Take a look at some of the gardens we maintain across Harlow and Essex. We take pride in leaving every outdoor space looking pristine.
+        </p>
+      </div>
+      
+      <div class="hidden md:block pb-2">
+        <button class="open-quote-modal cursor-pointer inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md text-brand-green bg-brand-green/10 hover:bg-brand-green hover:text-white transition-all duration-300">
+          Get Your Garden Listed
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      {projects.map((project) => (
+        <button 
+          class="gallery-btn group relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 bg-white cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand-green/50 text-left"
+          data-src={project.src}
+          data-alt={project.alt}
+          aria-label={`View larger image of ${project.alt}`}
+        >
+          <img 
+            src={project.src} 
+            alt={project.alt} 
+            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+            loading="lazy"
+          />
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-green-dark/90 via-brand-green-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <div class="flex items-center justify-between">
+                <p class="text-white font-medium text-sm drop-shadow-md line-clamp-2">
+                  {project.alt}
+                </p>
+                <div class="bg-white/20 backdrop-blur-sm rounded-full p-2 text-white shadow-lg ml-4 flex-shrink-0 group-hover:bg-brand-accent transition-colors">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+
+    <div class="mt-10 md:hidden text-center">
+      <button class="open-quote-modal w-full cursor-pointer inline-flex items-center justify-center px-6 py-4 border border-transparent text-lg font-bold rounded-md text-brand-green bg-brand-green/10 hover:bg-brand-green hover:text-white transition-all duration-300">
+        Transform Your Garden
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<dialog id="lightbox-modal" class="backdrop:bg-black/95 p-0 m-auto bg-transparent border-none w-full max-w-7xl h-[100dvh] overflow-hidden z-[100]">
+  
+  <div class="relative w-full h-full flex items-center justify-center p-4 sm:p-8">
+    
+    <button id="close-lightbox" class="absolute top-4 right-4 sm:top-8 sm:right-8 text-white bg-black/50 hover:bg-brand-accent rounded-full p-2 focus:outline-none transition-colors duration-300 cursor-pointer z-50" aria-label="Close image view">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    
+    <img id="lightbox-img" src="" alt="" class="max-h-full max-w-full object-contain rounded-lg shadow-2xl select-none" />
+  
+  </div>
+</dialog>
+
+<script>
+  const lightbox = document.getElementById('lightbox-modal') as HTMLDialogElement;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const closeBtn = document.getElementById('close-lightbox');
+  const galleryBtns = document.querySelectorAll('.gallery-btn');
+
+  // Open Lightbox
+  galleryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const src = btn.getAttribute('data-src');
+      const alt = btn.getAttribute('data-alt');
+      
+      if (src && lightboxImg) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || 'Enlarged garden image';
+        lightbox.showModal();
+        document.body.style.overflow = 'hidden'; 
+      }
+    });
+  });
+
+  // Close Lightbox Function
+  function closeLightbox() {
+    lightbox.close();
+    document.body.style.overflow = ''; 
+    
+    // Clear the image source so it doesn't flash the old image next time it opens
+    setTimeout(() => {
+      if(lightboxImg) {
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+      }
+    }, 200);
+  }
+
+  // Close when clicking the X button
+  closeBtn?.addEventListener('click', closeLightbox);
+
+  // Close when clicking anywhere outside the image (on the dark backdrop)
+  lightbox?.addEventListener('click', (e) => {
+    // If the click is on the dialog itself or the flex wrapper (not the image)
+    if (e.target === lightbox || e.target === lightbox.firstElementChild) {
+      closeLightbox();
+    }
+  });
+</script>
