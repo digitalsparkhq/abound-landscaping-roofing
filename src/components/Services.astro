@@ -3,19 +3,34 @@
 
 const services = [
   {
-    title: "Lawn Mowing & Care",
-    description: "Regular, reliable mowing to keep your grass lush, green, and perfectly striped. We handle the edging and the clean-up so your lawn is always barbecue-ready.",
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 21h6"></path></svg>`
+    title: "Roof & Gutter Cleaning",
+    description: "Take advantage of our limited-time £39 gutter cleaning offer! We also scrape and de-moss roofs, replace ridge tiles, and ensure everything flows perfectly.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>`
   },
   {
-    title: "Hedge Trimming & Pruning",
-    description: "Sharp, clean cuts for perfectly squared-off hedges and healthy shrubs. We shape, reduce, and meticulously clear away all the clippings.",
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path></svg>`
+    title: "Patio Restoration",
+    description: "Bring your patio back to life without the cost of a full replacement. We provide full chemical washes and fresh repointing to remove years of dirt and algae.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="1.5"></rect></svg>`
   },
   {
-    title: "General Garden Maintenance",
-    description: "Comprehensive year-round care. From weed control and border tidying to seasonal leaf clearance, we keep your outdoor spaces thriving in every season.",
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>`
+    title: "Garden Transformations",
+    description: "Turn dull, unusable gardens into beautiful outdoor spaces. From retaining walls and flower beds to complete overhauls, we manage the project from start to finish.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`
+  },
+  {
+    title: "Fencing & Gates",
+    description: "Secure and upgrade your property's boundaries. We supply and professionally install high-quality fencing panels, posts, and custom gates built to last.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>`
+  },
+  {
+    title: "Turfing & Lawns",
+    description: "Achieve the perfect green lawn. We offer professional turf laying for a fresh start, alongside regular grass cutting and strimming maintenance.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>`
+  },
+  {
+    title: "Jet Wash & Tidy Ups",
+    description: "One-off clearances or regular visits. We tackle high-pressure jet washing, overgrown brambles, hedge shaping, and general garden tidy-ups.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>`
   }
 ];
 ---
@@ -28,14 +43,14 @@ const services = [
         Our Services
       </div>
       <h2 class="text-3xl md:text-4xl leading-tight font-extrabold text-gray-900 mb-4">
-        Expert care to make your garden <span class="text-brand-green">thrive.</span>
+        Complete exterior care to make your property <span class="text-brand-green">stand out.</span>
       </h2>
       <p class="text-lg text-gray-600">
-        We specialize in high-quality, regular garden maintenance so you can spend less time working in your garden, and more time enjoying it.
+        From the top of your roof to the bottom of your garden, our team handles all residential and commercial landscaping and exterior maintenance.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.map((service) => (
         <div class="group bg-brand-light rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden cursor-pointer open-quote-modal">
           
@@ -64,13 +79,14 @@ const services = [
       <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 24px 24px;"></div>
       
       <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
-        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Need something else?</h3>
-        <p class="text-brand-light/90 text-lg">We also handle seasonal clean-ups, waste removal, and soft landscaping.</p>
+        <div class="inline-block bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">Limited Time</div>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Claim Your 10% New Customer Discount!</h3>
+        <p class="text-brand-light/90 text-lg max-w-2xl">Is your garden a mess? Need ideas? We are currently offering 10% off for all new customers needing jet washing, clearance, landscaping, or roofing work.</p>
       </div>
       
-      <div class="relative z-10">
+      <div class="relative z-10 flex-shrink-0">
         <button class="open-quote-modal cursor-pointer bg-brand-accent hover:bg-brand-accent-hover text-white font-bold py-4 px-8 rounded-md shadow-lg transition duration-300 whitespace-nowrap text-lg w-full md:w-auto transform hover:scale-105">
-          Get a Custom Quote
+          Claim 10% Off Quote
         </button>
       </div>
     </div>

@@ -1,25 +1,25 @@
 ---
 // src/components/Reviews.astro
 
-// Easy-to-edit array for your customer reviews
+// Genuine customer reviews for Abound
 const reviews = [
   {
-    name: "Sarah T.",
-    location: "Harlow",
-    text: "HB Gardencare completely transformed our overgrown back garden. Professional, punctual, and left everything spotless. Highly recommend!",
+    name: "Sarah Holland",
+    location: "Facebook Review",
+    text: "We used John firstly to clear a jungle of a garden... The end result was absolutely perfect, exactly what we had envisaged. I wouldn’t hesitate to recommend this company. John is a perfectionist and his motto is 'if the customer is happy, I’m happy'.",
     platform: "Facebook"
   },
   {
-    name: "Mark W.",
-    location: "Epping",
-    text: "Reliable and fairly priced. They've been doing our regular lawn mowing and hedge trimming for months now, and the grass has never looked better.",
-    platform: "Nextdoor"
+    name: "Andrew Evans",
+    location: "Facebook Review",
+    text: "We used Abound for jet washing, chemical wash and repointing the patio. They were professional and efficient. They also offered to replace a broken patio slab at no extra charge. Polite and friendly service, would recommend them.",
+    platform: "Facebook"
   },
   {
-    name: "Emma L.",
-    location: "Harlow",
-    text: "Fantastic service! They squared off my unruly front hedges perfectly and gave great advice on seasonal lawn care. A truly trustworthy local business.",
-    platform: "Google"
+    name: "Jan Lee",
+    location: "Facebook Review",
+    text: "John did the pointing on a wall of my house. He arranged for the scaffolding to remain up until the weather was dry enough to repaint... Genuinely nice guy, friendly and direct in his dealings with you. And he cleans up afterwards.",
+    platform: "Facebook"
   }
 ];
 ---
@@ -32,13 +32,13 @@ const reviews = [
 
     <div class="text-center max-w-3xl mx-auto mb-16 relative z-10">
       <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-green/10 text-brand-green font-semibold text-sm mb-4 border border-brand-green/20">
-        Community Trusted
+        Highly Recommended
       </div>
       <h2 class="text-3xl md:text-4xl leading-tight font-extrabold text-gray-900 mb-6">
-        Quality & Reliable <span class="text-brand-green">Service.</span>
+        Trusted across <span class="text-brand-green">Kent, Sussex & Surrey.</span>
       </h2>
       <p class="text-lg text-gray-600 mb-8">
-        Don't just take our word for it. We take pride in our reputation across Harlow and the surrounding areas.
+        Don't just take our word for it. We take pride in our workmanship, our honesty, and leaving every job spotless. 
       </p>
 
       <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
@@ -51,16 +51,6 @@ const reviews = [
               ★★★★★
             </div>
             <p class="text-sm font-bold text-gray-900 leading-tight">5.0 Rating</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <div class="bg-[#00b246] text-white p-2 rounded-full">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.015 1.942a.852.852 0 0 0-.6.236L3.926 9.664a.81.81 0 0 0 .57 1.385h.923v9.846c0 .641.513 1.154 1.154 1.154h10.846c.641 0 1.154-.513 1.154-1.154V11.05h.923a.81.81 0 0 0 .57-1.385l-7.489-7.486a.852.852 0 0 0-.562-.237zm0 2.278l5.441 5.438h-.697a.81.81 0 0 0-.81.81v8.423h-7.89V10.468a.81.81 0 0 0-.81-.81h-.697l5.463-5.438zM12 11.23a2.923 2.923 0 1 0 0 5.847 2.923 2.923 0 0 0 0-5.846zm0 1.62a1.303 1.303 0 1 1 0 2.607 1.303 1.303 0 0 1 0-2.606z"/></svg>
-          </div>
-          <div class="text-left">
-            <p class="text-sm font-bold text-gray-900 leading-tight">Local Favorite</p>
-            <p class="text-xs text-gray-500">Nextdoor Community</p>
           </div>
         </div>
       </div>
@@ -103,9 +93,9 @@ const reviews = [
     </div>
 
     <div class="mt-16 text-center">
-      <p class="text-gray-600 mb-6 font-medium">Ready to see the difference for yourself?</p>
+      <p class="text-gray-600 mb-6 font-medium">Ready to discuss your exterior project?</p>
       <button class="open-quote-modal cursor-pointer inline-flex justify-center items-center px-8 py-4 text-lg font-bold rounded-md text-white bg-brand-accent hover:bg-brand-accent-hover shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        Book Your Free Garden Visit
+        Get Your Free Quote
       </button>
     </div>
 

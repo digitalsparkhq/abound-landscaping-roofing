@@ -2,7 +2,6 @@
 // src/layouts/Layout.astro
 import '../styles/global.css';
 import Header from '../components/Header.astro';
-// 1. Import the new Footer component here
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -12,7 +11,8 @@ interface Props {
 
 const { 
   title, 
-  description = "Expert garden care, lawn mowing, and hedge maintenance in Harlow & Essex. Quality, reliable service to make your garden thrive." 
+  // Updated default SEO description for Abound
+  description = "Expert landscaping, roofing, and patio restoration services across Kent, Sussex, and Surrey. Quality, reliable service to completely transform your property." 
 } = Astro.props;
 ---
 
@@ -24,7 +24,8 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <title>{title} | HB Gardencare</title>
+    
+    <title>{title}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
