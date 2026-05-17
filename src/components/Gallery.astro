@@ -1,14 +1,32 @@
 ---
 // src/components/Gallery.astro
 
-// Updated to reflect Abound's specific landscaping and roofing services
+// Authentic project photos with contexts rewritten from their Facebook posts
 const projects = [
-  { src: "/images/gallery1.jpg", alt: "Full patio chemical wash and fresh repointing" },
-  { src: "/images/gallery2.jpg", alt: "Complete garden transformation with retaining wall and beds" },
-  { src: "/images/gallery3.jpg", alt: "Roof scraping, moss removal, and gutter cleaning" },
-  { src: "/images/gallery4.jpg", alt: "New fencing and custom gate installation" },
-  { src: "/images/gallery5.jpg", alt: "Overgrown garden clearance, jet washing, and tidy up" },
-  { src: "/images/gallery6.jpg", alt: "Professional turfing and fresh lawn maintenance" }
+  { 
+    src: "/images/hero1.jpeg", 
+    alt: "Complete garden transformation featuring pristine new fencing and a clean outdoor space" 
+  },
+  { 
+    src: "/images/gallery2.jpg", 
+    alt: "Garden overhaul in progress: excavating for new retaining walls, patio, and flower beds" 
+  },
+  { 
+    src: "/images/hero4.jpeg", 
+    alt: "Patio restoration brought back to life with a full chemical wash and fresh repointing" 
+  },
+  { 
+    src: "/images/gallery4.jpg", 
+    alt: "Professional, routine garden maintenance to keep outdoor spaces looking sharp" 
+  },
+  { 
+    src: "/images/gallery5.jpg", 
+    alt: "Emergency storm damage fence repair and secure panel replacement" 
+  },
+  { 
+    src: "/images/gallery6.jpg", 
+    alt: "Beautiful new patio extension in progress to create a larger outdoor living area" 
+  }
 ];
 ---
 
@@ -53,7 +71,7 @@ const projects = [
           <div class="absolute inset-0 bg-gradient-to-t from-brand-green-dark/90 via-brand-green-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
             <div class="p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
               <div class="flex items-center justify-between">
-                <p class="text-white font-medium text-sm drop-shadow-md line-clamp-2">
+                <p class="text-white font-medium text-sm drop-shadow-md line-clamp-3">
                   {project.alt}
                 </p>
                 <div class="bg-white/20 backdrop-blur-sm rounded-full p-2 text-white shadow-lg ml-4 flex-shrink-0 group-hover:bg-brand-accent transition-colors">
@@ -76,21 +94,22 @@ const projects = [
 </section>
 
 <dialog id="lightbox-modal" class="backdrop:bg-black/95 p-0 m-auto bg-transparent border-none w-full max-w-7xl h-[100dvh] overflow-hidden z-[100]">
-  
   <div class="relative w-full h-full flex items-center justify-center p-4 sm:p-8">
-    
     <button id="close-lightbox" class="absolute top-4 right-4 sm:top-8 sm:right-8 text-white bg-black/50 hover:bg-brand-accent rounded-full p-2 focus:outline-none transition-colors duration-300 cursor-pointer z-50" aria-label="Close image view">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
     
-    <img id="lightbox-img" src="" alt="" class="max-h-full max-w-full object-contain rounded-lg shadow-2xl select-none" />
-  
+    <div class="relative max-h-full max-w-full flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl select-none" />
+      <p id="lightbox-caption" class="text-white text-center mt-4 font-medium text-lg px-4 hidden"></p>
+    </div>
   </div>
 </dialog>
 
 <script>
   const lightbox = document.getElementById('lightbox-modal') as HTMLDialogElement;
   const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxCaption = document.getElementById('lightbox-caption') as HTMLParagraphElement;
   const closeBtn = document.getElementById('close-lightbox');
   const galleryBtns = document.querySelectorAll('.gallery-btn');
 
@@ -102,7 +121,14 @@ const projects = [
       
       if (src && lightboxImg) {
         lightboxImg.src = src;
-        lightboxImg.alt = alt || 'Enlarged garden image';
+        lightboxImg.alt = alt || 'Enlarged project image';
+        
+        // Populate the caption below the image in the lightbox
+        if (alt && lightboxCaption) {
+          lightboxCaption.textContent = alt;
+          lightboxCaption.classList.remove('hidden');
+        }
+        
         lightbox.showModal();
         document.body.style.overflow = 'hidden'; 
       }
@@ -119,6 +145,10 @@ const projects = [
       if(lightboxImg) {
         lightboxImg.src = '';
         lightboxImg.alt = '';
+      }
+      if(lightboxCaption) {
+        lightboxCaption.textContent = '';
+        lightboxCaption.classList.add('hidden');
       }
     }, 200);
   }

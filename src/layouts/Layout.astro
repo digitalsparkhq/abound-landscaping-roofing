@@ -7,13 +7,42 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean; // Added to handle the 404 page
 }
 
 const { 
   title, 
-  // Updated default SEO description for Abound
-  description = "Expert landscaping, roofing, and patio restoration services across Kent, Sussex, and Surrey. Quality, reliable service to completely transform your property." 
+  description = "Expert landscaping, roofing, and patio restoration services across Kent, Sussex, and Surrey. Quality, reliable service to completely transform your property.",
+  noindex = false
 } = Astro.props;
+
+// Define the core website URL
+const siteUrl = "https://aboundlandscapingandroofing.co.uk";
+
+// Generate the canonical URL for the current page
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+
+// Build the Local Business Schema for Google
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Abound Landscaping & Roofing",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/logo.png`,
+  "telephone": "+447864051249",
+  "email": "aboundlandscaping@outlook.com",
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Crowborough",
+    "addressCountry": "UK"
+  },
+  "areaServed": [
+    "Kent", 
+    "Sussex", 
+    "Surrey"
+  ]
+};
 ---
 
 <!doctype html>
@@ -21,15 +50,23 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    
+    <link rel="canonical" href={canonicalURL} />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     
     <title>{title}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body class="font-sans text-gray-800 bg-brand-light antialiased flex flex-col min-h-screen">
     
